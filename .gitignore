@@ -1,0 +1,47 @@
+# --- Build directories (Qt/CMake) ---
+*build*/
+*build/
+build/
+
+# --- Compiled artifacts / binaries (CI gate rejects any committed ELF) ---
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+
+# CMake/Make scratch
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*_autogen/
+.qt/
+.qtcreator/
+*.txt.user
+
+# --- Coverage intermediates (keep the human-readable HTML/report) ---
+*.gcno
+*.gcda
+
+# --- KLEE intermediates ---
+# We DO commit the KLEE results (klee/results/klee-out-*: .ktest counterexamples,
+# .assert.err traces, .kquery, messages/stats). Only the bulky, uninteresting dumps
+# are ignored: the full LLVM module (assembly.ll, ~1.5MB) and the istats profile.
+*.bc
+klee-last
+**/klee-out-*/assembly.ll
+**/klee-out-*/run.istats
+
+# --- Python tooling ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- OS noise ---
+.DS_Store

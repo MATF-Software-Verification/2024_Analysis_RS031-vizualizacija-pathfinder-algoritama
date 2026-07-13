@@ -1,0 +1,66 @@
+----- tst_points -----
+********* Start testing of TestPoints *********
+Config: Using QtTest library 6.10.2, Qt 6.10.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 11.4.1 20231218 (Red Hat 11.4.1-3)), linuxmint 22.3
+PASS   : TestPoints::initTestCase()
+PASS   : TestPoints::initializeResetsAllScores()
+PASS   : TestPoints::correctGuessFullTime()
+PASS   : TestPoints::correctGuessZeroTime()
+PASS   : TestPoints::erasePlayerRemovesEntry()
+PASS   : TestPoints::revealedLetterIncrementsFromZero()
+PASS   : TestPoints::drawerKeyWhenUninitialized()
+PASS   : TestPoints::cleanupTestCase()
+Totals: 8 passed, 0 failed, 0 skipped, 0 blacklisted, 2ms
+********* Finished testing of TestPoints *********
+----- tst_hangman -----
+********* Start testing of TestHangman *********
+Config: Using QtTest library 6.10.2, Qt 6.10.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 11.4.1 20231218 (Red Hat 11.4.1-3)), linuxmint 22.3
+PASS   : TestHangman::initTestCase()
+PASS   : TestHangman::maskedFormatForMultiChar()
+PASS   : TestHangman::singleCharWord()
+PASS   : TestHangman::revealAllCompletes()
+PASS   : TestHangman::emptyWordIsRejectedOrCrashes()
+PASS   : TestHangman::cleanupTestCase()
+Totals: 6 passed, 0 failed, 0 skipped, 0 blacklisted, 529ms
+********* Finished testing of TestHangman *********
+----- tst_leaderboard -----
+********* Start testing of TestLeaderboard *********
+Config: Using QtTest library 6.10.2, Qt 6.10.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 11.4.1 20231218 (Red Hat 11.4.1-3)), linuxmint 22.3
+PASS   : TestLeaderboard::initTestCase()
+PASS   : TestLeaderboard::seedIsSortedDescendingAndCappedAtTen()
+PASS   : TestLeaderboard::updateAddsNewPlayerToTop()
+PASS   : TestLeaderboard::updateAccumulatesExistingScore()
+PASS   : TestLeaderboard::cleanupTestCase()
+Totals: 5 passed, 0 failed, 0 skipped, 0 blacklisted, 34ms
+********* Finished testing of TestLeaderboard *********
+----- tst_words -----
+********* Start testing of TestWords *********
+Config: Using QtTest library 6.10.2, Qt 6.10.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 11.4.1 20231218 (Red Hat 11.4.1-3)), linuxmint 22.3
+PASS   : TestWords::initTestCase()
+PASS   : TestWords::picksRequestedCount()
+PASS   : TestWords::picksAreFromDictionary()
+PASS   : TestWords::defaultPickIsThree()
+PASS   : TestWords::cleanupTestCase()
+Totals: 5 passed, 0 failed, 0 skipped, 0 blacklisted, 2ms
+********* Finished testing of TestWords *********
+----- tst_manager -----
+********* Start testing of TestManager *********
+Config: Using QtTest library 6.10.2, Qt 6.10.2 (x86_64-little_endian-lp64 shared (dynamic) release build; by GCC 11.4.1 20231218 (Red Hat 11.4.1-3)), linuxmint 22.3
+PASS   : TestManager::initTestCase()
+PASS   : TestManager::rosterStartsEmpty()
+QDEBUG : TestManager::addPlayerGrowsRoster() Connection failed!
+QDEBUG : TestManager::addPlayerGrowsRoster() "PROFILE_PICTURE/alice/"
+QDEBUG : TestManager::addPlayerGrowsRoster() Connection failed!
+QDEBUG : TestManager::addPlayerGrowsRoster() "PROFILE_PICTURE/alice/"
+QDEBUG : TestManager::addPlayerGrowsRoster() Connection failed!
+QDEBUG : TestManager::addPlayerGrowsRoster() "PROFILE_PICTURE/bob/"
+PASS   : TestManager::addPlayerGrowsRoster()
+QDEBUG : TestManager::lookupByNickname() Connection failed!
+QDEBUG : TestManager::lookupByNickname() "PROFILE_PICTURE/alice/"
+PASS   : TestManager::lookupByNickname()
+QDEBUG : TestManager::lookupMissingReturnsNull() Connection failed!
+QDEBUG : TestManager::lookupMissingReturnsNull() "PROFILE_PICTURE/alice/"
+PASS   : TestManager::lookupMissingReturnsNull()
+PASS   : TestManager::gameNotRunningInitially()
+PASS   : TestManager::cleanupTestCase()
+Totals: 7 passed, 0 failed, 0 skipped, 0 blacklisted, 5ms
+********* Finished testing of TestManager *********

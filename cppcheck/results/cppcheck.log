@@ -1,0 +1,33 @@
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp ...
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:16: [style/noExplicitConstructor] Class 'Player' has a constructor with 1 argument that is not explicit.
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.h:10: [style/noExplicitConstructor] Class 'Points' has a constructor with 1 argument that is not explicit.
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:3: [performance/passedByValue] Function parameter 'players' should be passed by const reference.
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:5: [style/constVariablePointer] Variable 'player' can be declared as pointer to const
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:22: [style/constParameterPointer] Parameter 'player' can be declared as pointer to const
+1/9 files checked 3% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp ...
+2/9 files checked 6% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp ...
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.h:16: [style/noExplicitConstructor] Class 'Words' has a constructor with 1 argument that is not explicit.
+3/9 files checked 10% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp ...
+4/9 files checked 24% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp ...
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:122: [style/shadowVariable] Local variable 'nickname' shadows outer variable
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:101: [style/constVariableReference] Variable 'sender' can be declared as reference to const
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:102: [style/constVariableReference] Variable 'messageContent' can be declared as reference to const
+5/9 files checked 45% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp ...
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:51: [performance/passedByValue] Function parameter 'nickname' should be passed by const reference.
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:139: [performance/passedByValueCallback] Function parameter 'scores' should be passed by const reference. However it seems that 'onGameEnded' is a callback function.
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:53: [style/useStlAlgorithm] Consider using std::find_if algorithm instead of a raw loop.
+6/9 files checked 60% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp ...
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:182: [style/constVariablePointer] Variable 'player' can be declared as pointer to const
+7/9 files checked 90% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/server.cpp ...
+8/9 files checked 99% done
+Checking /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/main.cpp ...
+9/9 files checked 100% done
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:10: [style/unusedFunction] The function 'run' is never used.
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/server.cpp:39: [style/unusedFunction] The function 'incomingConnection' is never used.

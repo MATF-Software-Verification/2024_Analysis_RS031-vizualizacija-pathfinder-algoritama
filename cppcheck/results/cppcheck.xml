@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.13.0"/>
+    <errors>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;Player&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;Player&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h" line="16" column="5"/>
+            <symbol>Player</symbol>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;Points&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;Points&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.h" line="10" column="5"/>
+            <symbol>Points</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;players&apos; should be passed by const reference." verbose="Parameter &apos;players&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp" line="3" column="31" info="Function parameter &apos;players&apos; should be passed by const reference."/>
+            <symbol>players</symbol>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;player&apos; can be declared as pointer to const" verbose="Variable &apos;player&apos; can be declared as pointer to const" cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp" line="5" column="15" info="Variable &apos;player&apos; can be declared as pointer to const"/>
+            <symbol>player</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;player&apos; can be declared as pointer to const" verbose="Parameter &apos;player&apos; can be declared as pointer to const" cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp" line="22" column="34" info="Parameter &apos;player&apos; can be declared as pointer to const"/>
+            <symbol>player</symbol>
+        </error>
+        <error id="noExplicitConstructor" severity="style" msg="Class &apos;Words&apos; has a constructor with 1 argument that is not explicit." verbose="Class &apos;Words&apos; has a constructor with 1 argument that is not explicit. Such, so called &quot;Converting constructors&quot;, should in general be explicit for type safety reasons as that prevents unintended implicit conversions." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.h" line="16" column="5"/>
+            <symbol>Words</symbol>
+        </error>
+        <error id="shadowVariable" severity="style" msg="Local variable &apos;nickname&apos; shadows outer variable" verbose="Local variable &apos;nickname&apos; shadows outer variable" cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp" line="122" column="21" info="Shadow variable"/>
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h" line="50" column="13" info="Shadowed declaration"/>
+            <symbol>nickname</symbol>
+        </error>
+        <error id="constVariableReference" severity="style" msg="Variable &apos;sender&apos; can be declared as reference to const" verbose="Variable &apos;sender&apos; can be declared as reference to const" cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp" line="101" column="18" info="Variable &apos;sender&apos; can be declared as reference to const"/>
+            <symbol>sender</symbol>
+        </error>
+        <error id="constVariableReference" severity="style" msg="Variable &apos;messageContent&apos; can be declared as reference to const" verbose="Variable &apos;messageContent&apos; can be declared as reference to const" cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp" line="102" column="18" info="Variable &apos;messageContent&apos; can be declared as reference to const"/>
+            <symbol>messageContent</symbol>
+        </error>
+        <error id="passedByValue" severity="performance" msg="Function parameter &apos;nickname&apos; should be passed by const reference." verbose="Parameter &apos;nickname&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp" line="51" column="42" info="Function parameter &apos;nickname&apos; should be passed by const reference."/>
+            <symbol>nickname</symbol>
+        </error>
+        <error id="passedByValueCallback" severity="performance" msg="Function parameter &apos;scores&apos; should be passed by const reference. However it seems that &apos;onGameEnded&apos; is a callback function." verbose="Parameter &apos;scores&apos; is passed by value. It could be passed as a const reference which is usually faster and recommended in C++." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp" line="139" column="35" info="Function parameter &apos;scores&apos; should be passed by const reference. However it seems that &apos;onGameEnded&apos; is a callback function."/>
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp" line="146" column="56" info="Function pointer used here."/>
+            <symbol>scores</symbol>
+        </error>
+        <error id="useStlAlgorithm" severity="style" msg="Consider using std::find_if algorithm instead of a raw loop." verbose="Consider using std::find_if algorithm instead of a raw loop." cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp" line="53" column="45"/>
+        </error>
+        <error id="constVariablePointer" severity="style" msg="Variable &apos;player&apos; can be declared as pointer to const" verbose="Variable &apos;player&apos; can be declared as pointer to const" cwe="398" file0="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp" line="182" column="17" info="Variable &apos;player&apos; can be declared as pointer to const"/>
+            <symbol>player</symbol>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;run&apos; is never used." verbose="The function &apos;run&apos; is never used." cwe="561">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp" line="10" column="0"/>
+            <symbol>run</symbol>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &apos;incomingConnection&apos; is never used." verbose="The function &apos;incomingConnection&apos; is never used." cwe="561">
+            <location file="/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/server.cpp" line="39" column="0"/>
+            <symbol>incomingConnection</symbol>
+        </error>
+    </errors>
+</results>

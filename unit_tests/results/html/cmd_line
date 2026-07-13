@@ -1,0 +1,1 @@
+genhtml /home/jovan/Documents/VS-2/unit_tests/results/coverage.server.info --output-directory /home/jovan/Documents/VS-2/unit_tests/results/html

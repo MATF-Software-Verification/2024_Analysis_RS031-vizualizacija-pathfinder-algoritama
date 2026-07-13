@@ -1,0 +1,4 @@
+[submodule "SketchIt"]
+	path = SketchIt
+	url = https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2024-2025/SketchIt.git
+	branch = main

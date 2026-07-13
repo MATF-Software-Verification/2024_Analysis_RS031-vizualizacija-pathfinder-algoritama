@@ -1,0 +1,8 @@
+file                  lines   executed
+points.cpp               26    100.00%
+hangman.cpp              20    100.00%
+words.cpp                25     92.00%
+leaderboard.cpp          75     88.00%
+manager.cpp             105     33.33%
+player.cpp              151     17.22%
+game.cpp                186      0.00%

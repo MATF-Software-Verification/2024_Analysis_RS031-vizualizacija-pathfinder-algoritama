@@ -1,0 +1,742 @@
+----- points.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/messageType.h:4:6: warning: enum 'MessageType' uses a larger base type ('unsigned int', size: 4 bytes) than necessary for its value set, consider using 'std::uint8_t' (1 byte) as the base type to reduce its size [performance-enum-size]
+    4 | enum MessageType {
+      |      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:12:7: warning: class 'Player' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   12 | class Player : public QThread
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:17:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   17 |     ~Player();
+      |     ^        
+      |               override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:19:13: warning: member variable 'ID' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   19 |     qintptr ID;
+      |             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:20:17: warning: member variable 'socket' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   20 |     QTcpSocket *socket;
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:21:10: warning: member variable 'isReady' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   21 |     bool isReady = false;
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:24:5: warning: function 'getNickname' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QString getNickname() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:27:12: warning: member variable 'characterDrawing' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   27 |     QImage characterDrawing;
+      |            ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:3:16: warning: no header providing "QList" is directly included [misc-include-cleaner]
+    2 | 
+    3 | Points::Points(QList<Player*> players)
+      |                ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:3:22: warning: no header providing "Player" is directly included [misc-include-cleaner]
+    2 | 
+    3 | Points::Points(QList<Player*> players)
+      |                      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:3:31: warning: the parameter 'players' is copied for each invocation but only used as a const reference; consider making it a const reference [performance-unnecessary-value-param]
+    3 | Points::Points(QList<Player*> players)
+      |                               ^
+      |                const         &
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:29:5: warning: variable 'maxTime' of type 'int' can be declared 'const' [misc-const-correctness]
+   29 |     int maxTime = 60;
+      |     ^
+      |         const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:30:5: warning: variable 'guesserPoints' of type 'int' can be declared 'const' [misc-const-correctness]
+   30 |     int guesserPoints = 100
+      |     ^
+      |         const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:34:5: warning: variable 'drawerPoints' of type 'int' can be declared 'const' [misc-const-correctness]
+   34 |     int drawerPoints = guesserPoints / 3;
+      |     ^
+      |         const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/points.cpp:40:1: warning: no header providing "QMap" is directly included [misc-include-cleaner]
+    2 | QMap<Player*, int> Points::getRoundResults()
+      | ^
+----- hangman.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:6:29: warning: no header providing "std::string" is directly included [misc-include-cleaner]
+    5 | 
+    6 | Hangman::Hangman(const std::string& w, int inter, QObject* parent)
+      |                             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:6:51: warning: no header providing "QObject" is directly included [misc-include-cleaner]
+    4 | #include <random>
+    5 | 
+    6 | Hangman::Hangman(const std::string& w, int inter, QObject* parent)
+      |                                                   ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:6:60: warning: parameter 'parent' is unused [misc-unused-parameters]
+    6 | Hangman::Hangman(const std::string& w, int inter, QObject* parent)
+      |                                                            ^~~~~~
+      |                                                             /*parent*/
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:10:10: warning: no header providing "size_t" is directly included [misc-include-cleaner]
+    2 | #include <numeric>
+    3 | #include <algorithm>
+    4 | #include <random>
+    5 | 
+    6 | Hangman::Hangman(const std::string& w, int inter, QObject* parent)
+    7 |     : word(w), revealed(std::string(w.size() * 2 - 1, ' ')), revealIndex(0), interval(inter)
+    8 | {
+    9 | 
+   10 |     for (size_t i = 0; i < word.size(); ++i) {
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:27:9: warning: variable 'index' of type 'size_t' (aka 'unsigned long') can be declared 'const' [misc-const-correctness]
+   27 |         size_t index = randomIndices[revealIndex];
+      |         ^
+      |                const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:12:12: warning: use default member initializer for 'revealIndex' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+   12 |     size_t revealIndex;
+      |            ^          
+      |                       {0}
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:19:5: warning: function 'getRevealedWord' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   19 |     const std::string& getRevealedWord() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:20:5: warning: function 'isComplete' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |     bool isComplete() const;
+      |     ^
+      |     [[nodiscard]] 
+----- words.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp:4:14: warning: no header providing "QObject" is directly included [misc-include-cleaner]
+    3 | 
+    4 | Words::Words(QObject *parent)
+      |              ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp:10:20: warning: no header providing "std::runtime_error" is directly included [misc-include-cleaner]
+    3 | 
+    4 | Words::Words(QObject *parent)
+    5 |     :QObject(parent)
+    6 | {
+    7 |     QFile file(this->filePath);
+    8 |     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+    9 |     {
+   10 |         throw std::runtime_error(("Could not open file: " + filePath).toStdString());
+      |                    ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp:16:9: warning: variable 'word' of type 'QString' can be declared 'const' [misc-const-correctness]
+   16 |         QString word = in.readLine().trimmed();
+      |         ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp:32:5: warning: no header providing "QSet" is directly included [misc-include-cleaner]
+    3 |     QSet <int> randomIndices;
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp:37:9: warning: variable 'randomIndex' of type 'int' can be declared 'const' [misc-const-correctness]
+   37 |         int randomIndex = QRandomGenerator::global()->bounded(this->wordList.size());
+      |         ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/words.cpp:37:27: warning: narrowing conversion from 'qint64' (aka 'long long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+   37 |         int randomIndex = QRandomGenerator::global()->bounded(this->wordList.size());
+      |                           ^
+----- leaderboard.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:5:26: warning: no header providing "QObject" is directly included [misc-include-cleaner]
+    4 | 
+    5 | Leaderboard::Leaderboard(QObject *parent)
+      |                          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:13:37: warning: no header providing "QMap" is directly included [misc-include-cleaner]
+    4 | 
+    5 | Leaderboard::Leaderboard(QObject *parent)
+    6 |     : QObject(parent)
+    7 | {
+    8 |     ensureLeaderboardFileExists();
+    9 |     importFromJson();
+   10 | }
+   11 | 
+   12 | 
+   13 | void Leaderboard::updateLeaderboard(QMap <Player*, int>& newResults)
+      |                                     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:13:43: warning: no header providing "Player" is directly included [misc-include-cleaner]
+    2 | #include <QDir>
+    3 | #include <QStandardPaths>
+    4 | 
+    5 | Leaderboard::Leaderboard(QObject *parent)
+    6 |     : QObject(parent)
+    7 | {
+    8 |     ensureLeaderboardFileExists();
+    9 |     importFromJson();
+   10 | }
+   11 | 
+   12 | 
+   13 | void Leaderboard::updateLeaderboard(QMap <Player*, int>& newResults)
+      |                                           ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:17:9: warning: variable 'name' of type 'QString' can be declared 'const' [misc-const-correctness]
+   17 |         QString name = it.key()->getNickname();
+      |         ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:17:9: warning: no header providing "QString" is directly included [misc-include-cleaner]
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:18:9: warning: variable 'score' of type 'int' can be declared 'const' [misc-const-correctness]
+   18 |         int score = it.value();
+      |         ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:29:5: warning: no header providing "QJsonObject" is directly included [misc-include-cleaner]
+    4 |     QJsonObject root;
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:30:5: warning: no header providing "QJsonArray" is directly included [misc-include-cleaner]
+    4 |     QJsonArray playersArray;
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:43:20: warning: no header providing "QIODevice" is directly included [misc-include-cleaner]
+    4 |     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+      |                    ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:45:9: warning: no header providing "qDebug" is directly included [misc-include-cleaner]
+    4 |         qDebug() << "Error opening file for writing: " << file.errorString();
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:46:20: warning: no header providing "std::runtime_error" is directly included [misc-include-cleaner]
+    4 |         throw std::runtime_error(("Could not open file for writing: " + userFilePath).toStdString());
+      |                    ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:53:1: warning: no header providing "QList" is directly included [misc-include-cleaner]
+    4 | QList<QPair<QString, int>> Leaderboard::getLeaderboardResults()
+      | ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:53:7: warning: no header providing "QPair" is directly included [misc-include-cleaner]
+    4 | QList<QPair<QString, int>> Leaderboard::getLeaderboardResults()
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:57:32: warning: no header providing "qMakePair" is directly included [misc-include-cleaner]
+    4 |             playersList.append(qMakePair(it.key(), it.value()));
+      |                                ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:59:10: warning: no header providing "std::sort" is directly included [misc-include-cleaner]
+    4 |     std::sort(playersList.begin(), playersList.end(), [](const QPair<QString, int> &a, const QPair<QString, int> &b) {
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:73:5: warning: variable 'data' of type 'QByteArray' can be declared 'const' [misc-const-correctness]
+   73 |     QByteArray data = file.readAll();
+      |     ^
+      |                const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:73:5: warning: no header providing "QByteArray" is directly included [misc-include-cleaner]
+    4 |     QByteArray data = file.readAll();
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:74:5: warning: variable 'jsonDoc' of type 'QJsonDocument' can be declared 'const' [misc-const-correctness]
+   74 |     QJsonDocument jsonDoc = QJsonDocument::fromJson(data);
+      |     ^
+      |                   const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:81:5: warning: variable 'rootObj' of type 'QJsonObject' can be declared 'const' [misc-const-correctness]
+   81 |     QJsonObject rootObj = jsonDoc.object();
+      |     ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:82:5: warning: variable 'playersArray' of type 'QJsonArray' can be declared 'const' [misc-const-correctness]
+   82 |     QJsonArray playersArray = rootObj.value("players").toArray();
+      |     ^
+      |                const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:84:10: warning: the type of the loop variable 'value' is different from the one returned by the iterator and generates an implicit conversion; you can either change the type to the matching one ('const QJsonValueRef &' but 'const auto&' is always a valid option) or remove the reference to make it explicit that you are creating a new value [performance-implicit-conversion-in-loop]
+   84 |     for (const QJsonValue &value : playersArray) {
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:85:9: warning: variable 'playerObj' of type 'QJsonObject' can be declared 'const' [misc-const-correctness]
+   85 |         QJsonObject playerObj = value.toObject();
+      |         ^
+      |                     const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:86:9: warning: variable 'name' of type 'QString' can be declared 'const' [misc-const-correctness]
+   86 |         QString name = playerObj.value("name").toString();
+      |         ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:87:9: warning: variable 'score' of type 'int' can be declared 'const' [misc-const-correctness]
+   87 |         int score = playerObj.value("score").toInt();
+      |         ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:94:5: warning: variable 'userDataDir' of type 'QString' can be declared 'const' [misc-const-correctness]
+   94 |     QString userDataDir = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+      |     ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:95:5: warning: variable 'dir' of type 'QDir' can be declared 'const' [misc-const-correctness]
+   95 |     QDir dir(userDataDir);
+      |     ^
+      |          const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:108:9: warning: variable 'defaultFilePath' of type 'QString' can be declared 'const' [misc-const-correctness]
+  108 |         QString defaultFilePath = ":/resources/leaderboard.json";
+      |         ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/leaderboard.cpp:116:38: warning: no header providing "QFileDevice" is directly included [misc-include-cleaner]
+  116 |         if (!destFile.setPermissions(QFileDevice::ReadOwner | QFileDevice::WriteOwner))
+      |                                      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/messageType.h:4:6: warning: enum 'MessageType' uses a larger base type ('unsigned int', size: 4 bytes) than necessary for its value set, consider using 'std::uint8_t' (1 byte) as the base type to reduce its size [performance-enum-size]
+    4 | enum MessageType {
+      |      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:12:7: warning: class 'Player' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   12 | class Player : public QThread
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:17:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   17 |     ~Player();
+      |     ^        
+      |               override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:19:13: warning: member variable 'ID' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   19 |     qintptr ID;
+      |             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:20:17: warning: member variable 'socket' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   20 |     QTcpSocket *socket;
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:21:10: warning: member variable 'isReady' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   21 |     bool isReady = false;
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:24:5: warning: function 'getNickname' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QString getNickname() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:27:12: warning: member variable 'characterDrawing' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   27 |     QImage characterDrawing;
+      |            ^
+----- player.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/messageType.h:4:6: warning: enum 'MessageType' uses a larger base type ('unsigned int', size: 4 bytes) than necessary for its value set, consider using 'std::uint8_t' (1 byte) as the base type to reduce its size [performance-enum-size]
+    4 | enum MessageType {
+      |      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:3:1: warning: included header qtimer.h is not used directly [misc-include-cleaner]
+    3 | #include <qtimer.h>
+      | ^~~~~~~~~~~~~~~~~~~
+    4 | Player::Player(qintptr id, QObject* parent)
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:4:16: warning: no header providing "qintptr" is directly included [misc-include-cleaner]
+    4 | Player::Player(qintptr id, QObject* parent)
+      |                ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:4:28: warning: no header providing "QObject" is directly included [misc-include-cleaner]
+    3 | #include <qtimer.h>
+    4 | Player::Player(qintptr id, QObject* parent)
+      |                            ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:5:7: warning: no header providing "QThread" is directly included [misc-include-cleaner]
+    3 | #include <qtimer.h>
+    4 | Player::Player(qintptr id, QObject* parent)
+    5 |     : QThread(parent), ID(id)
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:7:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'QTcpSocket *' [cppcoreguidelines-owning-memory]
+    7 |     socket = new QTcpSocket(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:7:5: warning: 'socket' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer]
+    5 |     : QThread(parent), ID(id)
+      |                              
+      |                              , socket(new QTcpSocket(this))
+    6 | {
+    7 |     socket = new QTcpSocket(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:7:18: warning: no header providing "QTcpSocket" is directly included [misc-include-cleaner]
+    3 | #include <qtimer.h>
+    4 | Player::Player(qintptr id, QObject* parent)
+    5 |     : QThread(parent), ID(id)
+    6 | {
+    7 |     socket = new QTcpSocket(this);
+      |                  ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:12:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'QTcpSocket *' [cppcoreguidelines-owning-memory]
+   12 |     socket = new QTcpSocket();
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:19:9: warning: no header providing "qDebug" is directly included [misc-include-cleaner]
+    3 |         qDebug() << "Failed to set socket descriptor:" << this->ID;
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:32:5: warning: no header providing "quint32" is directly included [misc-include-cleaner]
+   32 |     quint32 bytesExpected = 0;
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:33:17: warning: variable 'currentMessageType' is not initialized [cppcoreguidelines-init-variables]
+   33 |     MessageType currentMessageType;
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:34:5: warning: no header providing "QDataStream" is directly included [misc-include-cleaner]
+   34 |     QDataStream in(socket);
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:37:21: warning: variable 'messageType' is not initialized [cppcoreguidelines-init-variables]
+   37 |             quint32 messageType, payloadSize;
+      |                     ^          
+      |                                 = 0
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:37:34: warning: variable 'payloadSize' is not initialized [cppcoreguidelines-init-variables]
+   37 |             quint32 messageType, payloadSize;
+      |                                  ^          
+      |                                              = 0
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:45:13: warning: no header providing "QByteArray" is directly included [misc-include-cleaner]
+    3 |             QByteArray payload;
+      |             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:63:28: warning: no header providing "QAbstractSocket" is directly included [misc-include-cleaner]
+    3 |     if (socket->state() == QAbstractSocket::ConnectedState) {
+      |                            ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:65:41: warning: no header providing "QIODevice" is directly included [misc-include-cleaner]
+   65 |         QDataStream stream(&dataToSend, QIODevice::WriteOnly);
+      |                                         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:79:5: warning: no header providing "QImage" is directly included [misc-include-cleaner]
+    3 |     QImage image;
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:95:9: warning: no header providing "emit" is directly included [misc-include-cleaner]
+    4 |         emit passDrawingUpdate(payload);
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:99:15: warning: no header providing "QString" is directly included [misc-include-cleaner]
+   99 |         const QString& message = QString::fromUtf8(payload);
+      |               ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:101:9: warning: variable 'sender' of type 'QString &' can be declared 'const' [misc-const-correctness]
+  101 |         QString& sender = message.split("/")[0];
+      |         ^      
+      |                 const
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:102:9: warning: variable 'messageContent' of type 'QString &' can be declared 'const' [misc-const-correctness]
+  102 |         QString& messageContent = message.split("/")[1];
+      |         ^      
+      |                 const
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:111:9: warning: variable 'message' of type 'QString' can be declared 'const' [misc-const-correctness]
+  111 |         QString message = QString::fromUtf8(payload);
+      |         ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:115:13: warning: variable 'selectedWord' of type 'QString' can be declared 'const' [misc-const-correctness]
+  115 |             QString selectedWord = parts[1];
+      |             ^
+      |                     const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:122:13: warning: variable 'nickname' of type 'QString' can be declared 'const' [misc-const-correctness]
+  122 |             QString nickname = parts[1];
+      |             ^
+      |                     const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.cpp:157:36: warning: the parameter 'payload' is copied for each invocation but only used as a const reference; consider making it a const reference [performance-unnecessary-value-param]
+  157 | void Player::sendSignal(QByteArray payload) {
+      |                                    ^
+      |                         const     &
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:12:7: warning: class 'Player' defines a non-default destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   12 | class Player : public QThread
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:17:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   17 |     ~Player();
+      |     ^        
+      |               override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:19:13: warning: member variable 'ID' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   19 |     qintptr ID;
+      |             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:20:17: warning: member variable 'socket' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   20 |     QTcpSocket *socket;
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:21:10: warning: member variable 'isReady' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   21 |     bool isReady = false;
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:24:5: warning: function 'getNickname' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QString getNickname() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:27:12: warning: member variable 'characterDrawing' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   27 |     QImage characterDrawing;
+      |            ^
+----- manager.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.h:13:7: warning: class 'Game' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   13 | class Game : public QObject
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.h:19:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   19 |     ~Game();
+      |     ^      
+      |             override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:19:5: warning: function 'getRevealedWord' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   19 |     const std::string& getRevealedWord() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:20:5: warning: function 'isComplete' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |     bool isComplete() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:4:10: warning: use '= default' to define a trivial default constructor [modernize-use-equals-default]
+    4 | Manager::Manager()
+      |          ^
+    5 | {
+      | ~
+      | = default;
+    6 | 
+    7 | }
+      | ~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:17:1: warning: no header providing "QString" is directly included [misc-include-cleaner]
+    3 | 
+    4 | Manager::Manager()
+    5 | {
+    6 | 
+    7 | }
+    8 | 
+    9 | Manager::~Manager()
+   10 | {
+   11 |     for(auto player : this->players)
+   12 |     {
+   13 |         player->deleteLater();
+   14 |     }
+   15 | }
+   16 | 
+   17 | QString Manager::getLeaderboard()
+      | ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:21:15: warning: loop variable is copied but only used as const reference; consider making it a const reference [performance-for-range-copy]
+   21 |     for (auto result : bestResults)
+      |               ^
+      |          const  &
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:28:33: warning: no header providing "QMap" is directly included [misc-include-cleaner]
+    3 | void Manager::updateLeaderbaord(QMap <Player*, int>& newResults)
+      |                                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:40:9: warning: no header providing "QByteArray" is directly included [misc-include-cleaner]
+    3 |         QByteArray buffer;
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:41:9: warning: no header providing "QBuffer" is directly included [misc-include-cleaner]
+    3 |         QBuffer imageBuffer(&buffer);
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:42:26: warning: no header providing "QIODevice" is directly included [misc-include-cleaner]
+    3 |         imageBuffer.open(QIODevice::WriteOnly);
+      |                          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:44:9: warning: variable 'imagePayload' of type 'QByteArray' can be declared 'const' [misc-const-correctness]
+   44 |         QByteArray imagePayload = buffer.toBase64();
+      |         ^
+      |                    const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:46:9: warning: variable 'message' of type 'QByteArray' can be declared 'const' [misc-const-correctness]
+   46 |         QByteArray message = "PROFILE_PICTURE/" + existingPlayer->getNickname().toUtf8() + "/" + imagePayload;
+      |         ^
+      |                    const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:51:42: warning: the parameter 'nickname' is copied for each invocation but only used as a const reference; consider making it a const reference [performance-unnecessary-value-param]
+   51 | Player* Manager::getPlayerByNick(QString nickname){
+      |                                          ^
+      |                                  const  &
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:76:5: warning: no header providing "emit" is directly included [misc-include-cleaner]
+    3 |     emit messageReceived(message, player);
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:84:1: warning: no header providing "QList" is directly included [misc-include-cleaner]
+    3 | QList<Player*> Manager::getAllPlayers() const
+      | ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:91:12: warning: narrowing conversion from 'qsizetype' (aka 'long long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+   91 |     return players.size();
+      |            ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:104:5: warning: variable 'disconnectedPlayerIndex' of type 'int' can be declared 'const' [misc-const-correctness]
+  104 |     int disconnectedPlayerIndex=players.indexOf(disconnectedPlayer);
+      |     ^
+      |         const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:104:33: warning: narrowing conversion from 'qsizetype' (aka 'long long') to signed type 'int' is implementation-defined [bugprone-narrowing-conversions,cppcoreguidelines-narrowing-conversions]
+  104 |     int disconnectedPlayerIndex=players.indexOf(disconnectedPlayer);
+      |                                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:123:9: warning: assigning newly created 'gsl::owner<>' to non-owner 'Game *' [cppcoreguidelines-owning-memory]
+  123 |         game = new Game(this, this);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.cpp:139:35: warning: the parameter 'scores' is copied for each invocation but only used as a const reference; consider making it a const reference [performance-unnecessary-value-param]
+  139 | void Manager::onGameEnded(QString scores){
+      |                                   ^
+      |                           const  &
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:10:7: warning: class 'Manager' defines a non-default destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   10 | class Manager : public QObject
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:15:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   15 |     ~Manager();
+      |     ^         
+      |                override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:23:21: warning: member variable 'players' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   23 |     QList <Player*> players;
+      |                     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:24:5: warning: function 'getAllPlayers' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QList<Player*> getAllPlayers() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:25:9: warning: member variable 'numberOfReadyPlayers' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   25 |     int numberOfReadyPlayers = 0;
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/messageType.h:4:6: warning: enum 'MessageType' uses a larger base type ('unsigned int', size: 4 bytes) than necessary for its value set, consider using 'std::uint8_t' (1 byte) as the base type to reduce its size [performance-enum-size]
+    4 | enum MessageType {
+      |      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:12:7: warning: class 'Player' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   12 | class Player : public QThread
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:17:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   17 |     ~Player();
+      |     ^        
+      |               override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:19:13: warning: member variable 'ID' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   19 |     qintptr ID;
+      |             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:20:17: warning: member variable 'socket' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   20 |     QTcpSocket *socket;
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:21:10: warning: member variable 'isReady' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   21 |     bool isReady = false;
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:24:5: warning: function 'getNickname' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QString getNickname() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:27:12: warning: member variable 'characterDrawing' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   27 |     QImage characterDrawing;
+      |            ^
+----- game.cpp -----
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:3:1: warning: included header qrandom.h is not used directly [misc-include-cleaner]
+    3 | #include <qrandom.h>
+      | ^~~~~~~~~~~~~~~~~~~~
+    4 | #include <QBuffer>
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:6:1: warning: constructor does not initialize these fields: revealTimer, hangman, revealIndex [cppcoreguidelines-pro-type-member-init]
+    6 | Game::Game(Manager* manager, QObject* parent)
+      | ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:6:12: warning: no header providing "Manager" is directly included [misc-include-cleaner]
+    2 | #include <QTimer>
+    3 | #include <qrandom.h>
+    4 | #include <QBuffer>
+    5 | 
+    6 | Game::Game(Manager* manager, QObject* parent)
+      |            ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:9:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'QTimer *' [cppcoreguidelines-owning-memory]
+    9 |     turnTimer = new QTimer(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:9:5: warning: 'turnTimer' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer]
+    7 |     : QObject(parent), manager(manager), currentDrawer(nullptr), currentWord(""), roundPoints(manager->getAllPlayers())
+      |                                                                  turnTimer(new QTimer(this)), 
+    8 | {
+    9 |     turnTimer = new QTimer(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:12:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'Words *' [cppcoreguidelines-owning-memory]
+   12 |     words = new Words(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:12:5: warning: 'words' should be initialized in a member initializer of the constructor [cppcoreguidelines-prefer-member-initializer]
+    7 |     : QObject(parent), manager(manager), currentDrawer(nullptr), currentWord(""), roundPoints(manager->getAllPlayers())
+      |                                                                  words(new Words(this)), 
+    8 | {
+    9 |     turnTimer = new QTimer(this);
+   10 |     connect(turnTimer, &QTimer::timeout, this, &Game::endTurn);
+   11 | 
+   12 |     words = new Words(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:12:17: warning: no header providing "Words" is directly included [misc-include-cleaner]
+    2 | #include <QTimer>
+    3 | #include <qrandom.h>
+    4 | #include <QBuffer>
+    5 | 
+    6 | Game::Game(Manager* manager, QObject* parent)
+    7 |     : QObject(parent), manager(manager), currentDrawer(nullptr), currentWord(""), roundPoints(manager->getAllPlayers())
+    8 | {
+    9 |     turnTimer = new QTimer(this);
+   10 |     connect(turnTimer, &QTimer::timeout, this, &Game::endTurn);
+   11 | 
+   12 |     words = new Words(this);
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:13:10: warning: no header providing "Player" is directly included [misc-include-cleaner]
+    2 | #include <QTimer>
+    3 | #include <qrandom.h>
+    4 | #include <QBuffer>
+    5 | 
+    6 | Game::Game(Manager* manager, QObject* parent)
+    7 |     : QObject(parent), manager(manager), currentDrawer(nullptr), currentWord(""), roundPoints(manager->getAllPlayers())
+    8 | {
+    9 |     turnTimer = new QTimer(this);
+   10 |     connect(turnTimer, &QTimer::timeout, this, &Game::endTurn);
+   11 | 
+   12 |     words = new Words(this);
+   13 |     for (Player* player : manager->players) {
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:19:7: warning: use '= default' to define a trivial destructor [modernize-use-equals-default]
+   19 | Game::~Game(){
+      |       ^      ~
+      |              = default;
+   20 | 
+   21 | }
+      | ~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:33:5: warning: variable 'sender' of type 'QString' can be declared 'const' [misc-const-correctness]
+   33 |     QString sender = message.split("/")[0];
+      |     ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:34:5: warning: variable 'guess' of type 'QString' can be declared 'const' [misc-const-correctness]
+   34 |     QString guess = message.split("/")[1];
+      |     ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:60:9: warning: variable 'points' of type 'int' can be declared 'const' [misc-const-correctness]
+   60 |         int points = roundPoints.getRoundResults()[player];
+      |         ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:61:9: warning: variable 'formattedUpdate' of type 'QString' can be declared 'const' [misc-const-correctness]
+   61 |         QString formattedUpdate = QString("%1:%2").arg(player->getNickname()).arg(points);
+      |         ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:76:5: warning: variable 'guess' of type 'QString' can be declared 'const' [misc-const-correctness]
+   76 |     QString guess = message.split('/')[1];
+      |     ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:112:9: warning: no header providing "QByteArray" is directly included [misc-include-cleaner]
+    5 |         QByteArray byteArray;
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:114:21: warning: no header providing "QIODevice" is directly included [misc-include-cleaner]
+    3 |         buffer.open(QIODevice::WriteOnly);
+      |                     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:116:9: warning: variable 'message' of type 'QByteArray' can be declared 'const' [misc-const-correctness]
+  116 |         QByteArray message = "PROFILE_PICTURE/" + player->getNickname().toUtf8() + "/" + byteArray;
+      |         ^
+      |                    const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:127:5: warning: no header providing "emit" is directly included [misc-include-cleaner]
+    5 |     emit gameEnded(formatScores());
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:144:9: warning: no header providing "qDebug" is directly included [misc-include-cleaner]
+    3 |         qDebug()<< "game emmit ending";
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:183:9: warning: variable 'score' of type 'int' can be declared 'const' [misc-const-correctness]
+  183 |         int score = it.value();
+      |         ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:195:5: warning: variable 'lastRoundResult' of type 'QMap<Player *, int>' can be declared 'const' [misc-const-correctness]
+  195 |     QMap<Player *, int> lastRoundResult = roundPoints.getRoundResults();
+      |     ^
+      |                         const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:195:5: warning: no header providing "QMap" is directly included [misc-include-cleaner]
+    3 |     QMap<Player *, int> lastRoundResult = roundPoints.getRoundResults();
+      |     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:198:9: warning: variable 'scoreToAdd' of type 'int' can be declared 'const' [misc-const-correctness]
+  198 |         int scoreToAdd = it.value();
+      |         ^
+      |             const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:220:74: warning: do not use const_cast to remove const qualifier [cppcoreguidelines-pro-type-const-cast]
+  220 |         if (!playersThatGuessed.isEmpty() && playersThatGuessed.contains(const_cast<Player*>(player))) {
+      |                                                                          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:221:39: warning: do not use const_cast to remove const qualifier [cppcoreguidelines-pro-type-const-cast]
+  221 |             playersThatGuessed.remove(const_cast<Player*>(player));
+      |                                       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:224:33: warning: do not use const_cast to remove const qualifier [cppcoreguidelines-pro-type-const-cast]
+  224 |         roundPoints.erasePlayer(const_cast<Player*>(player));
+      |                                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:285:5: warning: variable 'chosenWord' of type 'std::string' (aka 'basic_string<char>') can be declared 'const' [misc-const-correctness]
+  285 |     std::string chosenWord = this->currentWord.toStdString();
+      |     ^
+      |                 const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:285:10: warning: no header providing "std::string" is directly included [misc-include-cleaner]
+    5 |     std::string chosenWord = this->currentWord.toStdString();
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:290:5: warning: variable 'intervalDuration' of type 'int' can be declared 'const' [misc-const-correctness]
+  290 |     int intervalDuration = 60 / std::max(1, static_cast<int>(chosenWord.size()));
+      |     ^
+      |         const 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:290:38: warning: no header providing "std::max" is directly included [misc-include-cleaner]
+    3 |     int intervalDuration = 60 / std::max(1, static_cast<int>(chosenWord.size()));
+      |                                      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:291:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'Hangman *' [cppcoreguidelines-owning-memory]
+  291 |     hangman = new Hangman(chosenWord, intervalDuration, this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:291:19: warning: no header providing "Hangman" is directly included [misc-include-cleaner]
+    2 |     hangman = new Hangman(chosenWord, intervalDuration, this);
+      |                   ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.cpp:299:5: warning: assigning newly created 'gsl::owner<>' to non-owner 'QTimer *' [cppcoreguidelines-owning-memory]
+  299 |     revealTimer = new QTimer(this);
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.h:13:7: warning: class 'Game' defines a non-default destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   13 | class Game : public QObject
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.h:19:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   19 |     ~Game();
+      |     ^      
+      |             override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/game.h:39:13: warning: use default member initializer for 'currentDrawer' [cppcoreguidelines-use-default-member-init,modernize-use-default-member-init]
+   39 |     Player* currentDrawer;
+      |             ^            
+      |                          {nullptr}
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:19:5: warning: function 'getRevealedWord' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   19 |     const std::string& getRevealedWord() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.h:20:5: warning: function 'isComplete' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   20 |     bool isComplete() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:10:7: warning: class 'Manager' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   10 | class Manager : public QObject
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:15:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   15 |     ~Manager();
+      |     ^         
+      |                override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:23:21: warning: member variable 'players' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   23 |     QList <Player*> players;
+      |                     ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:24:5: warning: function 'getAllPlayers' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QList<Player*> getAllPlayers() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/manager.h:25:9: warning: member variable 'numberOfReadyPlayers' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   25 |     int numberOfReadyPlayers = 0;
+      |         ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/messageType.h:4:6: warning: enum 'MessageType' uses a larger base type ('unsigned int', size: 4 bytes) than necessary for its value set, consider using 'std::uint8_t' (1 byte) as the base type to reduce its size [performance-enum-size]
+    4 | enum MessageType {
+      |      ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:12:7: warning: class 'Player' defines a destructor but does not define a copy constructor, a copy assignment operator, a move constructor or a move assignment operator [cppcoreguidelines-special-member-functions]
+   12 | class Player : public QThread
+      |       ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:17:5: warning: annotate this function with 'override' or (rarely) 'final' [cppcoreguidelines-explicit-virtual-functions,modernize-use-override]
+   17 |     ~Player();
+      |     ^        
+      |               override
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:19:13: warning: member variable 'ID' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   19 |     qintptr ID;
+      |             ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:20:17: warning: member variable 'socket' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   20 |     QTcpSocket *socket;
+      |                 ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:21:10: warning: member variable 'isReady' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   21 |     bool isReady = false;
+      |          ^
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:24:5: warning: function 'getNickname' should be marked [[nodiscard]] [modernize-use-nodiscard]
+   24 |     QString getNickname() const;
+      |     ^
+      |     [[nodiscard]] 
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/player.h:27:12: warning: member variable 'characterDrawing' has public visibility [cppcoreguidelines-non-private-member-variables-in-classes,misc-non-private-member-variables-in-classes]
+   27 |     QImage characterDrawing;
+      |            ^

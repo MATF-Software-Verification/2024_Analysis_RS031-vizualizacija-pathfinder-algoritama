@@ -1,0 +1,26 @@
+# Valgrind suppressions for Qt/glibc noise unrelated to the project.
+# We already restrict reporting to definite+indirect leaks, so "still reachable"
+# Qt singletons are excluded automatically; these entries cover the few
+# dynamic-loader / fontconfig allocations that some Qt builds report regardless.
+
+{
+   dl-init-reachable
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   ...
+   fun:_dl_init
+}
+{
+   dlopen-qt-plugins
+   Memcheck:Leak
+   match-leak-kinds: reachable,possible
+   ...
+   fun:dlopen*
+}
+{
+   fontconfig-init
+   Memcheck:Leak
+   match-leak-kinds: reachable,possible
+   ...
+   obj:*/libfontconfig.so*
+}

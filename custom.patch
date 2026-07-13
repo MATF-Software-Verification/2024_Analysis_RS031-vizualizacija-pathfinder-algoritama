@@ -1,0 +1,10 @@
+diff --git a/SketchIt/server/words.cpp b/SketchIt/server/words.cpp
+index 3e7404f..ff5b9ac 100644
+--- a/SketchIt/server/words.cpp
++++ b/SketchIt/server/words.cpp
+@@ -1,4 +1,5 @@
+ #include "words.h"
++#include <QTextStream>
+ 
+ Words::Words(QObject *parent)
+     :QObject(parent)

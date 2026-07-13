@@ -1,0 +1,36 @@
+CBMC version 5.95.1 (cbmc-5.95.1) 64-bit x86_64 linux
+Parsing /home/jovan/Documents/VS-2/cbmc/points_domain.c
+Converting
+Type-checking points_domain
+Generating GOTO Program
+Adding CPROVER library (x86_64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 8 object bits, 56 offset bits (default)
+Starting Bounded Model Checking
+Runtime Symex: 0.00048442s
+size of program expression: 32 steps
+simple slicing removed 5 assignments
+Generated 4 VCC(s), 4 remaining after simplification
+Runtime Postprocess Equation: 7.124e-06s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.0038718s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 4.749e-06s
+Solving with MiniSAT 2.2.1 with simplifier
+3517 variables, 13948 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.00839661s
+Runtime decision procedure: 0.012304s
+
+** Results:
+/home/jovan/Documents/VS-2/cbmc/points_domain.c function main
+[main.overflow.1] line 17 arithmetic overflow on signed * in 400 * timeLeft: SUCCESS
+[main.overflow.2] line 17 arithmetic overflow on signed + in 100 + ((400 * timeLeft) / 1000) / 60: SUCCESS
+[main.assertion.1] line 20 guesser score within [100,500]: SUCCESS
+[main.assertion.2] line 21 drawer score within [33,166]: SUCCESS
+
+** 0 of 4 failed (1 iterations)
+VERIFICATION SUCCESSFUL

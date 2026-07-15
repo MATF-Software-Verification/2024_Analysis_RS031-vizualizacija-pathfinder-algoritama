@@ -23,7 +23,7 @@ izabran jer sadrži algoritamsku logiku nezavisnu od GUI-ja, pa je merljiv i tes
 ulaz (`server.cpp`, `main.cpp`) i `QtZeroConf` zavisnost su van opsega jediničnog testiranja.
 
 Primenjeno je **7 alata/tehnika** (jedinični i integracioni testovi računaju se zasebno), od kojih
-su tri van vežbi (cppcheck, ASan/UBSan, CBMC).
+su dva van vežbi (cppcheck, ASan/UBSan).
 Tehnike su namerno raspoređene po spektru: dinamičko testiranje → statička analiza →
 instrumentacija pri izvršavanju → formalna verifikacija. Ista jezgra logike (bodovanje, maskiranje
 reči) napadnuta je sa više strana radi unakrsne potvrde nalaza.

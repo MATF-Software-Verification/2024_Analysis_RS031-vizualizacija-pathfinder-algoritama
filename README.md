@@ -39,9 +39,8 @@ GUI-ja: `points.cpp`, `hangman.cpp`, `words.cpp`, `leaderboard.cpp`, `player.cpp
 ## Korišćeni alati i tehnike
 
 Analiza koristi **7 alata/tehnika** (zahtevani minimum je 6). Zahtev da **najmanje dva** alata
-nisu rađena na vežbama je ispunjen sa rezervom — tri alata su van vežbi: **cppcheck**,
-**AddressSanitizer/UBSan** i **CBMC** (poslednji je i napredna tehnika formalne verifikacije
-koja ne postoji ni u priloženom primeru).
+nisu rađena na vežbama je ispunjen — dva alata su van vežbi: **cppcheck** i
+**AddressSanitizer/UBSan**.
 
 | # | Alat / tehnika | Kategorija | Direktorijum | Na vežbama? |
 |---|----------------|------------|--------------|-------------|
@@ -51,7 +50,7 @@ koja ne postoji ni u priloženom primeru).
 | 4 | Valgrind (memcheck) | Dinamička analiza memorije | [`valgrind/`](./valgrind) | da |
 | 5 | cppcheck | Statička analiza | [`cppcheck/`](./cppcheck) | **ne** |
 | 6 | AddressSanitizer + UndefinedBehaviorSanitizer | Dinamička instrumentacija | [`sanitizers/`](./sanitizers) | **ne** |
-| 7 | CBMC | Ograničena provera modela | [`cbmc/`](./cbmc) | **ne** |
+| 7 | CBMC | Ograničena provera modela | [`cbmc/`](./cbmc) | da |
 
 > Napomena prema pravilima: jedinični i integracioni testovi računaju se kao **dva zasebna alata**
 > (stavke 1 i 2), iako dele isti direktorijum; alat za pokrivenost (gcov/lcov) je podrška testiranju

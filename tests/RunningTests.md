@@ -35,7 +35,7 @@ Ukupno: **31 test, svi prolaze.**
 ## Reprodukcija
 
 ```bash
-cd unit_tests
+cd tests
 QT_PREFIX=/putanja/do/Qt/6.x/gcc_64 ./run.sh
 ```
 

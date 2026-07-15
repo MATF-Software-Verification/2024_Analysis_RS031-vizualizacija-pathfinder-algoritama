@@ -3,7 +3,7 @@
 #       and runs it, capturing any runtime memory/UB findings.
 # Why:  Dynamic analysis catches errors that only manifest at runtime: heap leaks,
 #       use-after-free, out-of-bounds, signed overflow, invalid enum/shift, etc.
-# How:  Configures the unit_tests CMake project with coverage OFF and the sanitizer
+# How:  Configures the tests CMake project with coverage OFF and the sanitizer
 #       flags injected, then runs every test under ASan/UBSan with logging on.
 set -euo pipefail
 
@@ -25,7 +25,7 @@ SAN_FLAGS="-fsanitize=address,undefined,unsigned-integer-overflow -fsanitize-rec
 CXX_COMPILER="${CXX_COMPILER:-clang++}"
 
 echo "==> Configuring with ASan + UBSan (clang, coverage off)"
-cmake -S "${ROOT}/unit_tests" -B "${BUILD}" \
+cmake -S "${ROOT}/tests" -B "${BUILD}" \
     -DCMAKE_PREFIX_PATH="${QT_PREFIX}" \
     -DCMAKE_CXX_COMPILER="${CXX_COMPILER}" \
     -DENABLE_COVERAGE=OFF \

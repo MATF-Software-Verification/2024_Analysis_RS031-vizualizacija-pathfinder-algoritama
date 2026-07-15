@@ -43,7 +43,7 @@ git submodule update --init
 
 ## 2. Alati, postupak i rezultati
 
-### 2.1 Jedinični i integracioni testovi (QtTest) + pokrivenost (gcov/lcov) — `unit_tests/`
+### 2.1 Jedinični i integracioni testovi (QtTest) + pokrivenost (gcov/lcov) — `tests/`
 
 Izgrađena je statička biblioteka `serverlogic` (instrumentisana sa `--coverage`) i pet QtTest
 izvršnih fajlova. Testovi se pokreću headless (`QT_QPA_PLATFORM=offscreen`), a resursi (lista reči,

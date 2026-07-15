@@ -19,7 +19,7 @@ QT_PREFIX="${QT_PREFIX:-/home/jovan/Qt/6.10.2/gcc_64}"
 echo "==> $(valgrind --version)"
 
 echo "==> Plain debug build (no coverage / no sanitizer)"
-cmake -S "${ROOT}/unit_tests" -B "${BUILD}" \
+cmake -S "${ROOT}/tests" -B "${BUILD}" \
     -DCMAKE_PREFIX_PATH="${QT_PREFIX}" \
     -DENABLE_COVERAGE=OFF \
     -DCMAKE_BUILD_TYPE=Debug >/dev/null

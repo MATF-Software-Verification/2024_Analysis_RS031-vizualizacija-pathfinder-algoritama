@@ -17,7 +17,7 @@ cd sanitizers
 QT_PREFIX=/putanja/do/Qt/6.x/gcc_64 ./run.sh
 ```
 
-Skripta konfiguriše `unit_tests` projekat sa `-fsanitize=address,undefined,unsigned-integer-overflow`
+Skripta konfiguriše `tests` projekat sa `-fsanitize=address,undefined,unsigned-integer-overflow`
 (pokrivenost isključena), izgradi i pokrene svih 5 test-izvršnih fajlova pod
 sanitajzerima, i upiše izveštaje u `results/` (`run.log`, `asan.*`, `ubsan.*`).
 

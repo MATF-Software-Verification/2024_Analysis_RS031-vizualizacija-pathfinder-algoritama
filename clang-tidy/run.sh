@@ -3,7 +3,7 @@
 # Why:  LLVM-based linter that flags bugprone patterns, modernization opportunities
 #       and core-guideline violations the compiler doesn't; complements cppcheck
 #       (different check engine -> different findings).
-# How:  Reuses the unit_tests CMake project to emit a compile_commands.json (so
+# How:  Reuses the tests CMake project to emit a compile_commands.json (so
 #       clang-tidy sees the exact Qt include flags), then lints each server .cpp.
 set -euo pipefail
 
@@ -18,8 +18,8 @@ QT_PREFIX="${QT_PREFIX:-/home/jovan/Qt/6.10.2/gcc_64}"
 
 echo "==> clang-tidy $(clang-tidy --version | head -1)"
 
-echo "==> Generating compile_commands.json via the unit_tests CMake project"
-cmake -S "${ROOT}/unit_tests" -B "${CDB_BUILD}" \
+echo "==> Generating compile_commands.json via the tests CMake project"
+cmake -S "${ROOT}/tests" -B "${CDB_BUILD}" \
       -DCMAKE_PREFIX_PATH="${QT_PREFIX}" \
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON >/dev/null
 # AUTOMOC/AUTORCC generated headers must exist before clang-tidy parses TUs.

@@ -44,8 +44,8 @@ nisu rađena na vežbama je ispunjen — dva alata su van vežbi: **cppcheck** i
 
 | # | Alat / tehnika | Kategorija | Direktorijum | Na vežbama? |
 |---|----------------|------------|--------------|-------------|
-| 1 | QtTest — jedinični testovi | Testiranje | [`unit_tests/`](./unit_tests) | da |
-| 2 | QtTest — integracioni testovi | Testiranje | [`unit_tests/`](./unit_tests) | da |
+| 1 | QtTest — jedinični testovi | Testiranje | [`tests/`](./tests) | da |
+| 2 | QtTest — integracioni testovi | Testiranje | [`tests/`](./tests) | da |
 | 3 | clang-tidy | Stilske/lint provere | [`clang-tidy/`](./clang-tidy) | da |
 | 4 | Valgrind (memcheck) | Dinamička analiza memorije | [`valgrind/`](./valgrind) | da |
 | 5 | cppcheck | Statička analiza | [`cppcheck/`](./cppcheck) | **ne** |
@@ -86,7 +86,7 @@ Sve skripte poštuju `QT_PREFIX` promenljivu (podrazumevano `/home/<user>/Qt/6.1
 
 ```bash
 # 1. Testovi + pokrivenost (gcov/lcov)
-( cd unit_tests && ./run.sh )                 # 31 test, izveštaj u unit_tests/results/
+( cd tests && ./run.sh )                       # 31 test, izveštaj u tests/results/
 
 # 2. clang-tidy (statički lint; generiše compile_commands.json)
 ( cd clang-tidy && ./run.sh )                 # rezultati u clang-tidy/results/

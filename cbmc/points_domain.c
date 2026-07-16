@@ -1,12 +1,3 @@
-/*
- * What: CBMC harness that proves the Points scoring formula correct over its whole
- *       legal input domain.
- * Why:  points.cpp computes guesser = 100 + (400*timeLeft/1000)/60, drawer = /3.
- *       The unit tests cover only the two endpoints; CBMC verifies every value in
- *       [0, 60000] ms and also checks for arithmetic overflow on that range.
- * How:  timeLeft is nondeterministic but assumed in-domain; assertions pin the
- *       expected score envelope. Expected result: VERIFICATION SUCCESSFUL.
- */
 int nondet_int(void);
 
 int main(void)

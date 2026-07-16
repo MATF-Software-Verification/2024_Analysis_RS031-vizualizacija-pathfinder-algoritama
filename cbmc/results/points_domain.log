@@ -8,22 +8,22 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.00048442s
+Runtime Symex: 0.000436927s
 size of program expression: 32 steps
 simple slicing removed 5 assignments
 Generated 4 VCC(s), 4 remaining after simplification
-Runtime Postprocess Equation: 7.124e-06s
+Runtime Postprocess Equation: 8.311e-06s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.0038718s
+Runtime Convert SSA: 0.00282696s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 4.749e-06s
+Runtime Post-process: 2.374e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 3517 variables, 13948 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.00839661s
-Runtime decision procedure: 0.012304s
+Runtime Solver: 0.00711906s
+Runtime decision procedure: 0.00997333s
 
 ** Results:
 /home/jovan/Documents/VS-2/cbmc/points_domain.c function main

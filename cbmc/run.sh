@@ -25,12 +25,12 @@ run_case() {
 
 # Hangman: prove the masked-length never underflows. --unsigned-overflow-check makes
 # CBMC reason about size_t wrap-around; expected: VERIFICATION FAILED (len == 0).
-run_case hangman_masklen --unsigned-overflow-check --bounds-check
+run_case hangman_masklen --unsigned-overflow-check --bounds-check --trace
 
 # Points over the legal domain: expected VERIFICATION SUCCESSFUL (formula proven).
 run_case points_domain --signed-overflow-check --div-by-zero-check
 
 # Points without an input contract: expected VERIFICATION FAILED (overflow / range).
-run_case points_overflow --signed-overflow-check
+run_case points_overflow --signed-overflow-check --trace
 
 echo "==> Done. Full traces in ${RESULTS}/*.log"

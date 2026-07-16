@@ -75,7 +75,7 @@ sudo apt-get install -y cppcheck clang clang-tidy clang-format valgrind lcov cbm
 Inicijalizacija:
 
 ```bash
-git clone --recurse-submodules <ovaj-repo>
+git clone --recurse-submodules https://github.com/Skora01/2026_Analysis_SketchIt
 cd VS-2
 git submodule update --init
 ( cd SketchIt && git apply ../custom.patch )

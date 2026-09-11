@@ -1,0 +1,17 @@
+/home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:7:50: runtime error: unsigned integer overflow: 0 - 1 cannot be represented in type 'size_type' (aka 'unsigned long')
+    #0 0x56a7b1cfeb08 in Hangman::Hangman(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>> const&, int, QObject*) /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:7:50
+    #1 0x56a7b1cfc705 in TestHangman::emptyWordIsRejectedOrCrashes() /home/jovan/Documents/VS-2/tests/tests/unit/tst_hangman.cpp:50:17
+    #2 0x70ce3cd9a720 in QMetaMethodInvoker::invokeImpl(QMetaMethod, void*, Qt::ConnectionType, long long, void const* const*, char const* const*, QtPrivate::QMetaTypeInterface const* const*) (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Core.so.6+0x19a720) (BuildId: 52a89c333ba3a7cb54704247204f385dc7295aac)
+    #3 0x70ce3cd9b7ef in QMetaMethod::invokeImpl(QMetaMethod, void*, Qt::ConnectionType, long long, void const* const*, char const* const*, QtPrivate::QMetaTypeInterface const* const*) (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Core.so.6+0x19b7ef) (BuildId: 52a89c333ba3a7cb54704247204f385dc7295aac)
+    #4 0x70ce3eb9daf1  (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Test.so.6+0x2daf1) (BuildId: 5c0e4dc7ec53d02324718623427e924e3ea01ce1)
+    #5 0x70ce3eba560b  (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Test.so.6+0x3560b) (BuildId: 5c0e4dc7ec53d02324718623427e924e3ea01ce1)
+    #6 0x70ce3eba6400  (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Test.so.6+0x36400) (BuildId: 5c0e4dc7ec53d02324718623427e924e3ea01ce1)
+    #7 0x70ce3eba6ae7  (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Test.so.6+0x36ae7) (BuildId: 5c0e4dc7ec53d02324718623427e924e3ea01ce1)
+    #8 0x70ce3eba7761 in QTest::qRun() (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Test.so.6+0x37761) (BuildId: 5c0e4dc7ec53d02324718623427e924e3ea01ce1)
+    #9 0x70ce3eba79cf in QTest::qExec(QObject*, int, char**) (/home/jovan/Qt/6.10.2/gcc_64/lib/libQt6Test.so.6+0x379cf) (BuildId: 5c0e4dc7ec53d02324718623427e924e3ea01ce1)
+    #10 0x56a7b1cfcae6 in main /home/jovan/Documents/VS-2/tests/tests/unit/tst_hangman.cpp:62:1
+    #11 0x70ce3c42a1c9 in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+    #12 0x70ce3c42a28a in __libc_start_main csu/../csu/libc-start.c:360:3
+    #13 0x56a7b1c1f534 in _start (/home/jovan/Documents/VS-2/sanitizers/build/tst_hangman+0x2f534) (BuildId: 4f552c97eae370b92e808351c3a26330f249f9c0)
+
+SUMMARY: UndefinedBehaviorSanitizer: undefined-behavior /home/jovan/Documents/VS-2/SketchIt/SketchIt/server/hangman.cpp:7:50 

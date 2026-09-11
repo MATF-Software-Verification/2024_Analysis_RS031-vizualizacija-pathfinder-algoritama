@@ -1,9 +1,3 @@
-/*
- * What: Unit tests for the Points scoring class (SketchIt server).
- * Why:  Points computes per-round scores; its integer arithmetic and map handling
- *       are pure logic, ideal for white-box unit testing.
- * How:  QtTest. Players are constructed only as map keys (no networking is started).
- */
 #include <QtTest>
 #include "points.h"
 #include "player.h"
@@ -12,7 +6,6 @@ class TestPoints : public QObject
 {
     Q_OBJECT
 
-    // Build a non-running Player usable purely as a QMap key / nickname holder.
     Player* mkPlayer(const QString& nick)
     {
         Player* p = new Player(0, this);
@@ -29,14 +22,13 @@ private slots:
     void drawerKeyWhenUninitialized();
 };
 
-// initialize() must zero every player's round result and set the drawer.
 void TestPoints::initializeResetsAllScores()
 {
     Player* a = mkPlayer("a");
     Player* b = mkPlayer("b");
     Points p({a, b});
 
-    p.newCorrectGuess(a, 60000); // dirty the map first
+    p.newCorrectGuess(a, 60000);
     p.initialize(a);
 
     auto r = p.getRoundResults();
@@ -44,8 +36,8 @@ void TestPoints::initializeResetsAllScores()
     QCOMPARE(r.value(b), 0);
 }
 
-// guesserPoints = 100 + (400*timeLeft/1000)/60 ; drawerPoints = guesserPoints/3.
-// timeLeft = 60000 ms -> guesser 500, drawer 166 (integer division).
+//guesser = max poena 500
+//drawer trecina of guessera
 void TestPoints::correctGuessFullTime()
 {
     Player* drawer = mkPlayer("drawer");
@@ -87,7 +79,7 @@ void TestPoints::erasePlayerRemovesEntry()
     QVERIFY(p.getRoundResults().contains(b));
 }
 
-// newRevealedLetter() returns a post-increment counter, reset by initialize().
+// newRevealedLetter() vraca post-inkrement
 void TestPoints::revealedLetterIncrementsFromZero()
 {
     Player* a = mkPlayer("a");
@@ -99,8 +91,7 @@ void TestPoints::revealedLetterIncrementsFromZero()
     QCOMPARE(p.newRevealedLetter(), 2);
 }
 
-// FINDING (documented): without initialize(), drawer is nullptr, so a correct guess
-// silently inserts a nullptr key into the results map instead of crediting a drawer.
+// Bez initialize() dodavanje poena ce dodati poene nullptr
 void TestPoints::drawerKeyWhenUninitialized()
 {
     Player* guesser = mkPlayer("guesser");

@@ -1,26 +1,29 @@
-# Valgrind suppressions for Qt/glibc noise unrelated to the project.
-# We already restrict reporting to definite+indirect leaks, so "still reachable"
-# Qt singletons are excluded automatically; these entries cover the few
-# dynamic-loader / fontconfig allocations that some Qt builds report regardless.
+# Valgrind suppressions za sum iz Qt okvira (nije kod projekta).
+#
+# Jedno pravilo, i ono nosi tezinu: bez njega memcheck prijavljuje
+#   Invalid read of size 16
+#     ... qMetaTypeTypeInternal -> QMetaObject::indexOfMethod
+#     ... QObject::connect <- libibusplatforminputcontextplugin.so
+#   Address 0x... is 27 bytes inside a block of size 42 alloc'd
+# Qt cita 16 bajtova odjednom (SSE) pri parsiranju imena meta-tipa, pa prelazi
+# granicu bloka za jedan bajt. Nijedan frejm u tom steku nije kod projekta:
+# izvor je Qt-ov ibus plagin za metod unosa, koji se ucitava preko DBus-a i
+# nedeterministicki (zavisi od DBus sesije), zbog cega bi bez ovog pravila
+# ERROR SUMMARY varirao izmedju pokretanja.
+#
+# QT_IM_MODULE=none / =compose ne pomazu: Qt ignorise te vrednosti i ucita
+# ibus preko QPlatformInputContextFactory::create().
+#
+# Vezano je za objektni fajl plagina, ne za apsolutne putanje koje generise
+# --gen-suppressions=all, pa pravilo radi i sa drugom Qt instalacijom.
+# "..." poklapa bilo koliko frejmova.
+#
+# NAPOMENA: "still reachable" curenja Qt singltona se NE prigusuju ovde -
+# njih vec isklucuje --show-leak-kinds=definite,indirect u run.sh.
 
 {
-   dl-init-reachable
-   Memcheck:Leak
-   match-leak-kinds: reachable
+   qt-ibus-dbus-metatype-overread
+   Memcheck:Addr16
    ...
-   fun:_dl_init
-}
-{
-   dlopen-qt-plugins
-   Memcheck:Leak
-   match-leak-kinds: reachable,possible
-   ...
-   fun:dlopen*
-}
-{
-   fontconfig-init
-   Memcheck:Leak
-   match-leak-kinds: reachable,possible
-   ...
-   obj:*/libfontconfig.so*
+   obj:*/libibusplatforminputcontextplugin.so
 }

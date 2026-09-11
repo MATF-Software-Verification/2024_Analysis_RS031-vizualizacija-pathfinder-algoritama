@@ -1,10 +1,3 @@
-/*
- * What: Integration tests for Manager (SketchIt server).
- * Why:  Manager owns the player roster and the Leaderboard; constructing it touches
- *       the filesystem/resource seed, so it is an integration-level test.
- * How:  QtTest. Players are non-running (no sockets connected); sendSignal on a
- *       disconnected socket is a no-op, so roster operations are safe to test.
- */
 #include <QtTest>
 #include <QStandardPaths>
 #include "manager.h"
@@ -33,7 +26,7 @@ private slots:
 void TestManager::initTestCase()
 {
     QStandardPaths::setTestModeEnabled(true);
-    Q_INIT_RESOURCE(resources); // Manager constructs Leaderboard members
+    Q_INIT_RESOURCE(resources);
 }
 
 void TestManager::rosterStartsEmpty()

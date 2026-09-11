@@ -1,22 +1,22 @@
-==264664== Memcheck, a memory error detector
-==264664== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
-==264664== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
-==264664== Command: /home/jovan/Documents/VS-2/valgrind/build/tst_words
-==264664== Parent PID: 263327
-==264664== 
-==264664== 
-==264664== HEAP SUMMARY:
-==264664==     in use at exit: 25,325 bytes in 65 blocks
-==264664==   total heap usage: 15,604 allocs, 15,539 frees, 4,079,301 bytes allocated
-==264664== 
-==264664== LEAK SUMMARY:
-==264664==    definitely lost: 0 bytes in 0 blocks
-==264664==    indirectly lost: 0 bytes in 0 blocks
-==264664==      possibly lost: 384 bytes in 1 blocks
-==264664==    still reachable: 4,204 bytes in 40 blocks
-==264664==         suppressed: 20,737 bytes in 24 blocks
-==264664== Reachable blocks (those to which a pointer was found) are not shown.
-==264664== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==264664== 
-==264664== For lists of detected and suppressed errors, rerun with: -s
-==264664== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==100136== Memcheck, a memory error detector
+==100136== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==100136== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==100136== Command: /home/jovan/Documents/VS-2/valgrind/build/tst_words
+==100136== Parent PID: 99931
+==100136== 
+==100136== 
+==100136== HEAP SUMMARY:
+==100136==     in use at exit: 25,325 bytes in 65 blocks
+==100136==   total heap usage: 16,182 allocs, 16,117 frees, 4,177,828 bytes allocated
+==100136== 
+==100136== LEAK SUMMARY:
+==100136==    definitely lost: 0 bytes in 0 blocks
+==100136==    indirectly lost: 0 bytes in 0 blocks
+==100136==      possibly lost: 384 bytes in 1 blocks
+==100136==    still reachable: 24,941 bytes in 64 blocks
+==100136==         suppressed: 0 bytes in 0 blocks
+==100136== Reachable blocks (those to which a pointer was found) are not shown.
+==100136== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==100136== 
+==100136== For lists of detected and suppressed errors, rerun with: -s
+==100136== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 1 from 1)

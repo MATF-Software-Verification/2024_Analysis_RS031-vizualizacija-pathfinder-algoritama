@@ -8,29 +8,29 @@ Removal of function pointers and virtual functions
 Generic Property Instrumentation
 Running with 8 object bits, 56 offset bits (default)
 Starting Bounded Model Checking
-Runtime Symex: 0.000436927s
+Runtime Symex: 0.000408432s
 size of program expression: 32 steps
 simple slicing removed 5 assignments
 Generated 4 VCC(s), 4 remaining after simplification
-Runtime Postprocess Equation: 8.311e-06s
+Runtime Postprocess Equation: 5.936e-06s
 Passing problem to propositional reduction
 converting SSA
-Runtime Convert SSA: 0.00282696s
+Runtime Convert SSA: 0.00292314s
 Running propositional reduction
 Post-processing
-Runtime Post-process: 2.374e-06s
+Runtime Post-process: 3.562e-06s
 Solving with MiniSAT 2.2.1 with simplifier
 3517 variables, 13948 clauses
 SAT checker: instance is UNSATISFIABLE
-Runtime Solver: 0.00711906s
-Runtime decision procedure: 0.00997333s
+Runtime Solver: 0.00744439s
+Runtime decision procedure: 0.0104079s
 
 ** Results:
 /home/jovan/Documents/VS-2/cbmc/points_domain.c function main
-[main.overflow.1] line 17 arithmetic overflow on signed * in 400 * timeLeft: SUCCESS
-[main.overflow.2] line 17 arithmetic overflow on signed + in 100 + ((400 * timeLeft) / 1000) / 60: SUCCESS
-[main.assertion.1] line 20 guesser score within [100,500]: SUCCESS
-[main.assertion.2] line 21 drawer score within [33,166]: SUCCESS
+[main.overflow.1] line 8 arithmetic overflow on signed * in 400 * timeLeft: SUCCESS
+[main.overflow.2] line 8 arithmetic overflow on signed + in 100 + ((400 * timeLeft) / 1000) / 60: SUCCESS
+[main.assertion.1] line 11 guesser score within [100,500]: SUCCESS
+[main.assertion.2] line 12 drawer score within [33,166]: SUCCESS
 
 ** 0 of 4 failed (1 iterations)
 VERIFICATION SUCCESSFUL

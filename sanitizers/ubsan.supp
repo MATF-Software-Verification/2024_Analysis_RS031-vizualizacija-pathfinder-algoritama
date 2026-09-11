@@ -1,9 +1,3 @@
-# UBSan suppressions: silence unsigned-integer-overflow reports that originate
-# inside third-party template code (Qt's QHash hashing, libstdc++'s mersenne
-# twister / uniform_int_distribution). These are well-defined wrap-arounds by
-# design in those libraries, not defects in the SketchIt project. Suppressing them
-# keeps the report focused on findings in the project's own translation units.
+#postoji iskljucivo zato sto je ukljucen unsigned-integer-overflow
 unsigned-integer-overflow:qhashfunctions.h
 unsigned-integer-overflow:random.tcc
-unsigned-integer-overflow:uniform_int_dist.h
-unsigned-integer-overflow:stl_algo.h

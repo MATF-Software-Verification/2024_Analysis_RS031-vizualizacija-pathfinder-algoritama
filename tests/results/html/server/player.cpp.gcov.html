@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Test Date:</td>
-            <td class="headerValue">2026-06-24 16:03:38</td>
+            <td class="headerValue">2026-09-10 20:56:16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntryLo">42.9&nbsp;%</td>
@@ -63,11 +63,11 @@
 <span id="L1"><span class="lineNum">       1</span>              : #include &quot;player.h&quot;</span>
 <span id="L2"><span class="lineNum">       2</span>              : #include &quot;messageType.h&quot;</span>
 <span id="L3"><span class="lineNum">       3</span>              : #include &lt;qtimer.h&gt;</span>
-<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC tlaBgGNC">          16 : Player::Player(qintptr id, QObject* parent)</span></span>
-<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">          16 :     : QThread(parent), ID(id)</span></span>
+<span id="L4"><span class="lineNum">       4</span> <span class="tlaGNC tlaBgGNC">          96 : Player::Player(qintptr id, QObject* parent)</span></span>
+<span id="L5"><span class="lineNum">       5</span> <span class="tlaGNC">          96 :     : QThread(parent), ID(id)</span></span>
 <span id="L6"><span class="lineNum">       6</span>              : {</span>
-<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          16 :     socket = new QTcpSocket(this);</span></span>
-<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          16 : }</span></span>
+<span id="L7"><span class="lineNum">       7</span> <span class="tlaGNC">          96 :     socket = new QTcpSocket(this);</span></span>
+<span id="L8"><span class="lineNum">       8</span> <span class="tlaGNC">          96 : }</span></span>
 <span id="L9"><span class="lineNum">       9</span>              : </span>
 <span id="L10"><span class="lineNum">      10</span> <span class="tlaUNC tlaBgUNC">           0 : void Player::run()</span></span>
 <span id="L11"><span class="lineNum">      11</span>              : {</span>
@@ -216,8 +216,8 @@
 <span id="L154"><span class="lineNum">     154</span> <span class="tlaUNC">           0 :         qDebug() &lt;&lt; &quot;Unknown message type!&quot;&lt;&lt;QString::fromUtf8(payload);</span></span>
 <span id="L155"><span class="lineNum">     155</span>              :     }</span>
 <span id="L156"><span class="lineNum">     156</span> <span class="tlaUNC">           0 : }</span></span>
-<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">           5 : void Player::sendSignal(QByteArray payload) {</span></span>
-<span id="L158"><span class="lineNum">     158</span> <span class="tlaGNC">           5 :     if (socket-&gt;state() == QAbstractSocket::ConnectedState) {</span></span>
+<span id="L157"><span class="lineNum">     157</span> <span class="tlaGNC tlaBgGNC">          30 : void Player::sendSignal(QByteArray payload) {</span></span>
+<span id="L158"><span class="lineNum">     158</span> <span class="tlaGNC">          30 :     if (socket-&gt;state() == QAbstractSocket::ConnectedState) {</span></span>
 <span id="L159"><span class="lineNum">     159</span> <span class="tlaUNC tlaBgUNC">           0 :         QByteArray dataToSend;</span></span>
 <span id="L160"><span class="lineNum">     160</span> <span class="tlaUNC">           0 :         QDataStream stream(&amp;dataToSend, QIODevice::WriteOnly);</span></span>
 <span id="L161"><span class="lineNum">     161</span>              : </span>
@@ -228,10 +228,10 @@
 <span id="L166"><span class="lineNum">     166</span> <span class="tlaUNC">           0 :         socket-&gt;write(dataToSend);</span></span>
 <span id="L167"><span class="lineNum">     167</span> <span class="tlaUNC">           0 :         socket-&gt;flush();</span></span>
 <span id="L168"><span class="lineNum">     168</span> <span class="tlaUNC">           0 :     } else {</span></span>
-<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC tlaBgGNC">           5 :         qDebug() &lt;&lt; &quot;Connection failed!&quot;;</span></span>
-<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">           5 :         qDebug() &lt;&lt; QString::fromUtf8(payload);</span></span>
+<span id="L169"><span class="lineNum">     169</span> <span class="tlaGNC tlaBgGNC">          30 :         qDebug() &lt;&lt; &quot;Connection failed!&quot;;</span></span>
+<span id="L170"><span class="lineNum">     170</span> <span class="tlaGNC">          30 :         qDebug() &lt;&lt; QString::fromUtf8(payload);</span></span>
 <span id="L171"><span class="lineNum">     171</span>              :     }</span>
-<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">           5 : }</span></span>
+<span id="L172"><span class="lineNum">     172</span> <span class="tlaGNC">          30 : }</span></span>
 <span id="L173"><span class="lineNum">     173</span>              : </span>
 <span id="L174"><span class="lineNum">     174</span> <span class="tlaUNC tlaBgUNC">           0 : void Player::sendDrawingUpdate(const QByteArray&amp; payload)</span></span>
 <span id="L175"><span class="lineNum">     175</span>              : {</span>
@@ -247,12 +247,12 @@
 <span id="L185"><span class="lineNum">     185</span> <span class="tlaUNC">           0 :     socket-&gt;flush();</span></span>
 <span id="L186"><span class="lineNum">     186</span> <span class="tlaUNC">           0 : }</span></span>
 <span id="L187"><span class="lineNum">     187</span>              : </span>
-<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC tlaBgGNC">          16 : void Player::setNickname(const QString&amp; nickname) {</span></span>
-<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC">          16 :     this-&gt;nickname = nickname;</span></span>
-<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">          16 : }</span></span>
+<span id="L188"><span class="lineNum">     188</span> <span class="tlaGNC tlaBgGNC">          96 : void Player::setNickname(const QString&amp; nickname) {</span></span>
+<span id="L189"><span class="lineNum">     189</span> <span class="tlaGNC">          96 :     this-&gt;nickname = nickname;</span></span>
+<span id="L190"><span class="lineNum">     190</span> <span class="tlaGNC">          96 : }</span></span>
 <span id="L191"><span class="lineNum">     191</span>              : </span>
-<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">           9 : QString Player::getNickname() const {</span></span>
-<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">           9 :     return nickname;</span></span>
+<span id="L192"><span class="lineNum">     192</span> <span class="tlaGNC">          54 : QString Player::getNickname() const {</span></span>
+<span id="L193"><span class="lineNum">     193</span> <span class="tlaGNC">          54 :     return nickname;</span></span>
 <span id="L194"><span class="lineNum">     194</span>              : }</span>
 <span id="L195"><span class="lineNum">     195</span>              : </span>
 <span id="L196"><span class="lineNum">     196</span> <span class="tlaUNC tlaBgUNC">           0 : void Player::onDisconnected()</span></span>
@@ -266,18 +266,18 @@
 <span id="L204"><span class="lineNum">     204</span> <span class="tlaUNC">           0 :     qDebug() &lt;&lt; &quot;Socket error occurred:&quot; &lt;&lt; socketError &lt;&lt; socket-&gt;errorString();</span></span>
 <span id="L205"><span class="lineNum">     205</span> <span class="tlaUNC">           0 : }</span></span>
 <span id="L206"><span class="lineNum">     206</span>              : </span>
-<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC tlaBgGNC">          32 : Player::~Player()</span></span>
+<span id="L207"><span class="lineNum">     207</span> <span class="tlaGNC tlaBgGNC">         192 : Player::~Player()</span></span>
 <span id="L208"><span class="lineNum">     208</span>              : {</span>
-<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">          16 :     if (isRunning())</span></span>
+<span id="L209"><span class="lineNum">     209</span> <span class="tlaGNC">          96 :     if (isRunning())</span></span>
 <span id="L210"><span class="lineNum">     210</span>              :     {</span>
 <span id="L211"><span class="lineNum">     211</span> <span class="tlaUNC tlaBgUNC">           0 :         quit();</span></span>
 <span id="L212"><span class="lineNum">     212</span> <span class="tlaUNC">           0 :         wait();</span></span>
 <span id="L213"><span class="lineNum">     213</span>              :     }</span>
-<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC tlaBgGNC">          16 :     if (socket)</span></span>
+<span id="L214"><span class="lineNum">     214</span> <span class="tlaGNC tlaBgGNC">          96 :     if (socket)</span></span>
 <span id="L215"><span class="lineNum">     215</span>              :     {</span>
-<span id="L216"><span class="lineNum">     216</span> <span class="tlaGNC">          16 :         socket-&gt;disconnect();</span></span>
+<span id="L216"><span class="lineNum">     216</span> <span class="tlaGNC">          96 :         socket-&gt;disconnect();</span></span>
 <span id="L217"><span class="lineNum">     217</span>              :     }</span>
-<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">          32 : }</span></span>
+<span id="L218"><span class="lineNum">     218</span> <span class="tlaGNC">         192 : }</span></span>
         </pre>
               </td>
             </tr>

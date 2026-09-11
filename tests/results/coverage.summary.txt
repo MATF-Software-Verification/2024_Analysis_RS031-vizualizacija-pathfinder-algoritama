@@ -1,8 +1,7 @@
-file                  lines   executed
-points.cpp               26    100.00%
-hangman.cpp              20    100.00%
-words.cpp                25     92.00%
-leaderboard.cpp          75     88.00%
-manager.cpp             105     33.33%
-player.cpp              151     17.22%
-game.cpp                186      0.00%
+points.cpp: Lines executed:100.00% of 26
+hangman.cpp: Lines executed:100.00% of 20
+words.cpp: Lines executed:92.00% of 25
+leaderboard.cpp: Lines executed:88.00% of 75
+manager.cpp: Lines executed:33.33% of 105
+player.cpp: Lines executed:17.22% of 151
+game.cpp: Lines executed:0.00% of 186

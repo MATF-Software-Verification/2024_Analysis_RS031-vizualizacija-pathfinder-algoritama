@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
-# What: Runs clang-tidy over the SketchIt server sources.
-# Why:  LLVM-based linter that flags bugprone patterns, modernization opportunities
-#       and core-guideline violations the compiler doesn't; complements cppcheck
-#       (different check engine -> different findings).
-# How:  Reuses the tests CMake project to emit a compile_commands.json (so
-#       clang-tidy sees the exact Qt include flags), then lints each server .cpp.
+
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT="$(realpath "${HERE}/..")"
 SERVER_DIR="$(realpath "${ROOT}/SketchIt/SketchIt/server")"
-CDB_BUILD="${HERE}/cdb-build"   # throwaway build dir, only for compile_commands.json
+CDB_BUILD="${HERE}/cdb-build"       
 RESULTS="${HERE}/results"
 mkdir -p "${RESULTS}"
 
@@ -21,15 +16,13 @@ echo "==> clang-tidy $(clang-tidy --version | head -1)"
 echo "==> Generating compile_commands.json via the tests CMake project"
 cmake -S "${ROOT}/tests" -B "${CDB_BUILD}" \
       -DCMAKE_PREFIX_PATH="${QT_PREFIX}" \
-      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON >/dev/null
-# AUTOMOC/AUTORCC generated headers must exist before clang-tidy parses TUs.
+      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON >/dev/null # potrebno za Qt headere
+#potrebno za moc fajlove
 cmake --build "${CDB_BUILD}" --target serverlogic_autogen -j"$(nproc)" >/dev/null 2>&1 || true
 
-# Check set: bug-prone + core guidelines + modernize + performance, minus a few
-# noisy/irrelevant checks (Qt-style naming, magic numbers, trailing return types).
 CHECKS='clang-analyzer-*,bugprone-*,cppcoreguidelines-*,modernize-*,performance-*,misc-*'
 CHECKS+=',-modernize-use-trailing-return-type,-cppcoreguidelines-avoid-magic-numbers'
-CHECKS+=',-readability-magic-numbers,-modernize-use-auto'
+CHECKS+=',-modernize-use-auto'
 
 SOURCES=(
     "${SERVER_DIR}/points.cpp"
@@ -44,13 +37,13 @@ SOURCES=(
 echo "==> Linting"
 : > "${RESULTS}/clang-tidy.log"
 for src in "${SOURCES[@]}"; do
+    #src##*/ brise najduze poklpanje */ s pocetka, samo hvata ime fajla
     echo "----- ${src##*/} -----" | tee -a "${RESULTS}/clang-tidy.log"
-    # -p points clang-tidy at the compile DB; header-filter restricts diagnostics
-    # to the project's own headers (not Qt's).
+ 
     clang-tidy -p "${CDB_BUILD}" \
         --checks="${CHECKS}" \
         --header-filter="${SERVER_DIR}/.*" \
-        "${src}" 2>/dev/null | tee -a "${RESULTS}/clang-tidy.log" || true
+        "${src}" | tee -a "${RESULTS}/clang-tidy.log" || true #true neophodno jer clang-tidy vraca ne nula izlaz
 done
 
 echo "==> Done. See ${RESULTS}/clang-tidy.log"

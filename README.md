@@ -1,4 +1,6 @@
-# Verifikacija softvera - Analiza projekta otvorenog koda: SketchIt
+# 2026_Analysis_SketchIt
+
+Verifikacija softvera - analiza projekta otvorenog koda: SketchIt
 
 ## Autor
 
